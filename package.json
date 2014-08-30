@@ -1,0 +1,45 @@
+{
+  "name": "spdy-push",
+  "description": "",
+  "version": "0.0.0",
+  "author": {
+    "name": "Jonathan Ong",
+    "email": "me@jongleberry.com",
+    "url": "http://jongleberry.com",
+    "twitter": "https://twitter.com/jongleberry"
+  },
+  "license": "MIT",
+  "repository": "jshttp/spdy-push",
+  "dependencies": {
+    "bytes": "^1.0.0",
+    "compressible": "^1.1.1",
+    "destroy": "^1.0.3",
+    "mime-types": "^1.0.2",
+    "mz": "^1.0.1",
+    "native-or-bluebird": "^1.1.0"
+  },
+  "devDependencies": {
+    "co": "3",
+    "raw-body": "1",
+    "mocha": "1",
+    "supertest": "0",
+    "spdy": "1",
+    "spdy-keys": "0",
+    "istanbul": "0",
+    "mocha": "1"
+  },
+  "scripts": {
+    "test": "mocha --reporter spec",
+    "test-cov": "istanbul cover node_modules/mocha/bin/_mocha -- --reporter dot",
+    "test-travis": "istanbul cover node_modules/mocha/bin/_mocha --report lcovonly -- --reporter dot"
+  },
+  "keywords": [
+    "http2",
+    "http",
+    "spdy",
+    "push"
+  ],
+  "files": [
+    "index.js"
+  ]
+}
