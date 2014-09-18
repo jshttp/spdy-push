@@ -37,7 +37,7 @@ require('spdy').createServer(require('spdy-keys'), function (req, res) {
 
 ## API
 
-### spdy(res).push([path], [options], [priority])
+### spdy(res).push([path], [options], [priority]).then( => )
 
 - `path` is the path of the object being pushed.
   Can also be set as `options.path`.
@@ -56,6 +56,14 @@ You do not need to set the following headers:
 - `content-encoding`
 - `content-length`
 - `content-type`
+
+### .then( => )
+
+Waits until the acknowledge event.
+
+### .send().then( => )
+
+Waits until the entire stream has been flushed.
 
 [npm-image]: https://img.shields.io/npm/v/spdy-push.svg?style=flat-square
 [npm-url]: https://npmjs.org/package/spdy-push
