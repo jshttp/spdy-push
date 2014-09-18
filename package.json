@@ -1,6 +1,6 @@
 {
   "name": "spdy-push",
-  "description": "",
+  "description": "SPDY Push helper",
   "version": "0.0.0",
   "author": {
     "name": "Jonathan Ong",
@@ -11,22 +11,21 @@
   "license": "MIT",
   "repository": "jshttp/spdy-push",
   "dependencies": {
+    "bluebird": "^2.3.2",
     "bytes": "^1.0.0",
-    "compressible": "^1.1.1",
+    "compressible": "2",
+    "debug": "*",
     "destroy": "^1.0.3",
-    "mime-types": "^1.0.2",
+    "mime-types": "2",
     "mz": "^1.0.1",
     "native-or-bluebird": "^1.1.0"
   },
   "devDependencies": {
-    "co": "3",
     "raw-body": "1",
     "mocha": "1",
-    "supertest": "0",
     "spdy": "1",
     "spdy-keys": "0",
-    "istanbul": "0",
-    "mocha": "1"
+    "istanbul": "0"
   },
   "scripts": {
     "test": "mocha --reporter spec",
@@ -40,6 +39,7 @@
     "push"
   ],
   "files": [
-    "index.js"
-  ]
+    "lib"
+  ],
+  "main": "lib"
 }
