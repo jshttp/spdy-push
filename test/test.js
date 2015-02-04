@@ -24,6 +24,7 @@ describe('Streams', function () {
     it('should push', function () {
       return listen(function (req, res) {
         var stream = new Readable()
+        stream._read = noop
         stream.push(null)
 
         return SPDY(res).push('/', {
@@ -43,6 +44,7 @@ describe('Streams', function () {
     it('should gzip', function () {
       return listen(function (req, res) {
         var stream = new Readable()
+        stream._read = noop
         stream.push('klajsdlfjalsdkfjalsdjkfsjdf')
         stream.push(null)
 
@@ -65,6 +67,7 @@ describe('Streams', function () {
     it('should not gzip', function () {
       return listen(function (req, res) {
         var stream = new Readable()
+        stream._read = noop
         stream.push(null)
 
         return SPDY(res).push('/', {
@@ -224,12 +227,11 @@ describe('Compression', function () {
 })
 
 describe('Disconnections', function () {
-  it('should not leak file descriptors', function () {
+  it('should not leak file descriptors', function (done) {
     var called = false
     var stream = new Readable()
-    stream.destroy = function () {
-      called = true
-    }
+    stream._read = noop
+    stream.destroy = done
 
     return listen(function (req, res) {
       return SPDY(res).push('/', {
@@ -237,9 +239,7 @@ describe('Disconnections', function () {
       })
     }).then(pull).then(function (res) {
       res.destroy()
-
-      assert(called)
-    })
+    }).catch(done)
   })
 })
 
