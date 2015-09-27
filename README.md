@@ -7,7 +7,6 @@
 [![Dependency Status][david-image]][david-url]
 [![License][license-image]][license-url]
 [![Downloads][downloads-image]][downloads-url]
-[![Gittip][gittip-image]][gittip-url]
 
 A SPDY Push helper to be used with [spdy](https://github.com/indutny/node-spdy).
 
@@ -79,5 +78,3 @@ Waits until the entire stream has been flushed.
 [license-url]: LICENSE
 [downloads-image]: http://img.shields.io/npm/dm/spdy-push.svg?style=flat-square
 [downloads-url]: https://npmjs.org/package/spdy-push
-[gittip-image]: https://img.shields.io/gittip/jonathanong.svg?style=flat-square
-[gittip-url]: https://www.gittip.com/jonathanong/
