@@ -92,7 +92,7 @@ describe('Streams', function () {
         })
       }).then(pull).then(function (res) {
         res.resume()
-        assert.equal(res.headers['content-encoding', 'gzip'])
+        assert.equal(res.headers['content-encoding'], 'gzip')
         assert(~res.headers['content-type'].indexOf('image/svg+xml'))
       })
     })
@@ -228,7 +228,6 @@ describe('Compression', function () {
 
 describe('Disconnections', function () {
   it('should not leak file descriptors', function (done) {
-    var called = false
     var stream = new Readable()
     stream._read = noop
     stream.destroy = done
@@ -243,7 +242,7 @@ describe('Disconnections', function () {
   })
 })
 
-function listen(fn) {
+function listen (fn) {
   return new Promise(function (resolve, reject) {
     server = spdy.createServer(keys, function (req, res) {
       var defer
@@ -272,7 +271,7 @@ function listen(fn) {
   })
 }
 
-function pull() {
+function pull () {
   return new Promise(function (resolve, reject) {
     agent = spdy.createAgent({
       port: port,
@@ -295,4 +294,4 @@ function pull() {
   })
 }
 
-function noop() {}
+function noop () {}
