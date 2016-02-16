@@ -22,6 +22,7 @@
     "spdy": "^1.32.4"
   },
   "devDependencies": {
+    "babel-eslint": "next",
     "bluebird": "^3.3.1",
     "eslint": "^2.1.0",
     "eslint-config-jongleberry": "^1.3.1",
