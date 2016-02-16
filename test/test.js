@@ -244,7 +244,15 @@ describe('Disconnections', function () {
 
 function listen (fn) {
   return new Promise(function (resolve, reject) {
-    server = spdy.createServer(keys, function (req, res) {
+    server = spdy.createServer({
+      key: keys.key,
+      cert: keys.cert,
+      ca: keys.ca,
+
+      spdy: {
+        protocols: ['h2']
+      }
+    }, function (req, res) {
       var defer
       try {
         defer = fn(req, res)
@@ -275,13 +283,13 @@ function pull () {
   return new Promise(function (resolve, reject) {
     agent = spdy.createAgent({
       port: port,
-      rejectUnauthorized: false
+      rejectUnauthorized: false,
+      spdy: {
+        protocols: ['h2']
+      }
     })
 
-    agent.once('error', reject)
-    agent.once('push', resolve)
-
-    https.request({
+    https.get({
       agent: agent,
       path: '/'
     })
@@ -290,7 +298,7 @@ function pull () {
       if (res.statusCode !== 204) reject(new Error('got status code: ' + res.statusCode))
       res.resume()
     })
-    .end()
+    .on('push', resolve)
   })
 }
 
