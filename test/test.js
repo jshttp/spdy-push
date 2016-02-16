@@ -6,7 +6,7 @@ var assert = require('assert')
 var keys = require('spdy-keys')
 var join = require('path').join
 var Readable = require('stream').Readable
-var Promise = require('native-or-bluebird')
+var Promise = require('any-promise')
 
 var SPDY = require('..')
 
