@@ -5,6 +5,7 @@ node_js:
 - "2"
 - "3"
 - "4"
+- "5"
 sudo: false
 language: node_js
 script: "npm run-script test-travis"
