@@ -58,10 +58,6 @@ You do not need to set the following headers:
 
 ### .then( => )
 
-Waits until the acknowledge event.
-
-### .send().then( => )
-
 Waits until the entire stream has been flushed.
 
 [npm-image]: https://img.shields.io/npm/v/spdy-push.svg?style=flat-square
