@@ -152,7 +152,7 @@ describe('Buffers', function () {
             threshold: 1,
             headers: {
               'content-encoding': 'gzip',
-              'content-type': 'text/plain',
+              'content-type': 'text/plain'
             },
             body: body
           })
@@ -190,7 +190,7 @@ describe('Compression', function () {
       return listen(function (req, res) {
         return SPDY(res).push({
           path: '/something.txt',
-          body: 'lol',
+          body: 'lol'
         })
       }).then(pull).then(function (res) {
         assert(!res.headers['content-encoding'])
@@ -275,7 +275,7 @@ function pull () {
   return new Promise(function (resolve, reject) {
     agent = spdy.createAgent({
       port: port,
-      rejectUnauthorized: false,
+      rejectUnauthorized: false
     })
 
     agent.once('error', reject)
@@ -283,7 +283,7 @@ function pull () {
 
     https.request({
       agent: agent,
-      path: '/',
+      path: '/'
     })
     .once('error', reject)
     .once('response', function (res) {

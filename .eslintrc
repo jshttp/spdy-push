@@ -1,11 +1,8 @@
 {
   "extends": [
-    "jongleberry"
+    "standard"
   ],
   "rules": {
-    // node v0.10+
-    "object-shorthand": 0,
-    "no-var": 0,
-    "prefer-arrow-callback": 0,
+
   }
 }
