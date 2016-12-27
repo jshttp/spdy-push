@@ -271,7 +271,7 @@ function listen (fn) {
         res.statusCode = 500
         res.end()
       })
-    }).listen(port, function (err) {
+    }).listen(function (err) {
       if (err) return reject(err)
       port = this.address().port
       resolve()
